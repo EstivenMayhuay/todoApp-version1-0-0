@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Estiven Mayhuay">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="main.css">
+
+  <!-- boxicons -->
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="header">
+    <input type="text" id="myInput" placeholder="What would you do?..." autofocus>
+    <input type="button" value="+" id="btnAdd">
+  </div>
+
+  <div id="myTodoList"></div>
+
+  <div id="modal">
+    <label for="textTaskChange">Change Task</label>
+    <input type="text" name="textTaskChange" id="textTaskChange">
+    <button id="btnCancel">Cancel</button>
+    <button id="btnSave">Save</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
