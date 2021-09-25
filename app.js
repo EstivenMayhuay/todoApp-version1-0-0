@@ -19,7 +19,7 @@ function displayStorageTask() {
 
 function addTask () {
   let textTask = $inputTask.value.trim();
-  if(textTask === '') return alert('Please enter a text task');
+  if(textTask === '') return alert('Please enter a new task');
 
   const objTask = {
     id: Date.now(),
@@ -55,6 +55,7 @@ function editTask(e) {
       indexTask = collectionLI.findIndex(item => item.id == idTask),
       objTask = collectionLI[indexTask];
 
+  // show the modal
   $modal.style.display = 'block';
   $modal.querySelector('input[type="text"').value = objTask.text;
 
@@ -69,17 +70,18 @@ function editTask(e) {
     saveInStorage();
     displayTask();
   });
-
 }
 
 function doneUndone(e){
-  const idTask = e.target.getAttribute('data-id'),
-        indexTask = collectionLI.findIndex(item => item.id == idTask);
+  const listItem = e.target.parentElement,
+        idTask = e.target.getAttribute('data-id'),
+        indexTask = collectionLI.findIndex(item => item.id == idTask),
+        objTask = collectionLI[indexTask];
 
   // if task.isDone is true put false but it's false put true
-  collectionLI[indexTask].isDone
-    ? (collectionLI[indexTask].isDone = false)
-    : (collectionLI[indexTask].isDone = true);
+  objTask.isDone
+    ? (objTask.isDone = false)
+    : (objTask.isDone = true);
 
   saveInStorage();
   displayTask();
@@ -93,6 +95,7 @@ function displayTask () {
     const listItem = document.createElement('li'),
     textSpan = document.createElement('span'),
     btnEdit = document.createElement('i'),
+    btnDone = document.createElement('i'),
     btnDelete = document.createElement('i');
 
     //listItem.textContent = objElem.text
@@ -103,9 +106,13 @@ function displayTask () {
     btnEdit.setAttribute('data-id', objElem.id);
     btnEdit.classList.add('bx', 'bx-edit');
 
+    btnDone.setAttribute('data-id', objElem.id);
+    btnDone.classList.add('bx', 'bx-circle');
+
     btnDelete.setAttribute('data-id', objElem.id);
     btnDelete.classList.add('bx', 'bxs-trash-alt');
 
+    listItem.appendChild(btnDone);
     listItem.appendChild(textSpan);
     listItem.appendChild(btnEdit);
     listItem.appendChild(btnDelete);
@@ -119,7 +126,7 @@ function displayTask () {
     btnDelete.addEventListener('click', deleteTask);
 
     // event done when a task is finished
-    listItem.addEventListener('click', doneUndone)
+    btnDone.addEventListener('click', doneUndone)
 
     // event edit a task
     btnEdit.addEventListener('click', editTask);
