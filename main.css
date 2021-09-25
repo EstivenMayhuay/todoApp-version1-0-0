@@ -8,6 +8,9 @@
   --fontMain: 'Lato', sans-serif;
   --colorText: #646464;
   --wBtnAdd: 28px;
+  --colorDanger: rgb(211, 29, 29);
+  --colorGreat: rgba(6, 196, 85, 0.9);
+  --colorPrimary: rgba(163, 6, 124, 0.8);
 }
 
 body {
@@ -25,7 +28,7 @@ body {
   justify-content: center;
   gap: 10px;
   width: 100%;
-  background: rgb(163, 6, 124, 0.8);
+  background: var(--colorPrimary);
   padding: 10px;
   margin: 0 0 24px 0;
 }
@@ -94,12 +97,13 @@ li {
   list-style: none;
   padding: 26px 5px 13px 5px;
   background: #fff;
+  box-shadow: 0 4px 4px rgba(64, 64, 64, 0.25);
 }
 
 li > span {
   color: var(--colorText);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 li > i {
@@ -127,7 +131,7 @@ li > i {
 }
 
 .bxs-trash-alt:hover {
-  color: rgb(211, 29, 29);
+  color: var(--colorDanger);
 }
 
 .bx-edit:hover {
@@ -135,12 +139,17 @@ li > i {
 }
 
 .bx-circle:hover {
-  color: rgb(6, 196, 85);
+  color: var(--colorGreat);
 }
 
 li.doneTask {
-  background: rgb(6, 196, 85);
+  background: var(--colorGreat);
   color: white;
+}
+
+li.doneTask  > span {
+  color: white;
+  text-decoration: line-through;
 }
 
 li.doneTask > i {
@@ -167,15 +176,16 @@ li.doneTask > .bx-circle:hover {
 }
 
 #modal {
-  outline: 2px solid red;
+  /*outline: 2px solid red;*/
   display: flex;
   flex-flow: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   width: 280px;
-  padding: 5px;
+  padding: 10px;
   background: white;
+  border-radius: 8px;
 }
 
 #modal label {
@@ -198,7 +208,7 @@ li.doneTask > .bx-circle:hover {
 }
 
 #modal input[type='text']:hover, #modal input[type='text']:focus {
-  border: 2px solid rgb(163, 6, 124, 0.8);
+  border: 2px solid var(--colorPrimary);
 }
 
 .buttons {
@@ -213,5 +223,26 @@ li.doneTask > .bx-circle:hover {
 .buttons > button {
   padding: 5px 20px;
   border: none;
+  border-radius: 5px;
   outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all .4s ease;
+}
+
+.buttons > button:active {
+  transform: scale(0.85);
+}
+
+#btnCancel {
+  border: 2px solid var(--colorDanger);
+  background: white;
+  color: var(--colorDanger);
+}
+
+#btnSave {
+  background: var(--colorPrimary);
+  color: white;
+  border: 2px solid var(--colorPrimary);
 }
