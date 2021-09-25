@@ -8,6 +8,9 @@
   <title>Todo App</title>
   <link rel="stylesheet" href="main.css">
 
+  <!-- fonts google -->
+  <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- boxicons -->
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -19,11 +22,15 @@
 
   <div id="myTodoList"></div>
 
-  <div id="modal">
-    <label for="textTaskChange">Change Task</label>
-    <input type="text" name="textTaskChange" id="textTaskChange">
-    <button id="btnCancel">Cancel</button>
-    <button id="btnSave">Save</button>
+  <div class="contentModal">
+    <div id="modal">
+      <label for="textTaskChange">Change Task</label>
+      <input type="text" name="textTaskChange" id="textTaskChange">
+      <div class="buttons">
+        <button id="btnCancel">Cancel</button>
+        <button id="btnSave">Save</button>
+      </div>
+    </div>
   </div>
 
   <script src="app.js"></script>
