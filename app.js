@@ -120,7 +120,7 @@ function displayTask () {
     $listSelection.appendChild(listItem);
 
     // task done
-    //if(item.isDone)
+    if(objElem.isDone) listItem.classList.add('doneTask');
 
     // event delete when the user click on the trash
     btnDelete.addEventListener('click', deleteTask);
@@ -137,6 +137,4 @@ displayStorageTask();
 
 $btnAdd.addEventListener('click', addTask);
 
-$inputTask.addEventListener('keydown', (e) => {
-  if(e.key == "Enter") addTask();
-});
+$inputTask.addEventListener('keydown', (e) => { if(e.key == "Enter") addTask(); });
