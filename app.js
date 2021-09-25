@@ -1,7 +1,8 @@
 let $listSelection = document.getElementById('myTodoList'),
     $inputTask = document.getElementById('myInput'),
     $btnAdd = document.getElementById('btnAdd'),
-    $modal = document.getElementById('modal');
+    $contentModal = document.querySelector('.contentModal'),
+    $modal = $contentModal.querySelector('#modal');
 
 let collectionLI = [];
 
@@ -56,16 +57,16 @@ function editTask(e) {
       objTask = collectionLI[indexTask];
 
   // show the modal
-  $modal.style.display = 'block';
+  $contentModal.style.display = 'flex';
   $modal.querySelector('input[type="text"').value = objTask.text;
 
   document.getElementById('btnCancel').addEventListener('click', () => {
-    $modal.style.display = 'none';
+    $contentModal.style.display = 'none';
   });
 
   document.getElementById('btnSave').addEventListener('click', () => {
     objTask.text = $modal.querySelector('input[type="text"').value.trim();
-    $modal.style.display = 'none';
+    $contentModal.style.display = 'none';
 
     saveInStorage();
     displayTask();

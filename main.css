@@ -163,6 +163,7 @@ li.doneTask > .bx-circle:hover {
   width: 100%;
   height: 100vh;
   background: rgba(64, 64, 64, 0.65);
+  transition: all 1s ease;
 }
 
 #modal {
