@@ -246,3 +246,19 @@ li.doneTask > .bx-circle:hover {
   color: white;
   border: 2px solid var(--colorPrimary);
 }
+
+/* Laptops */
+@media screen and (min-width:768px) {
+  .header input[type="text"] {
+    width: 320px;
+  }
+
+  #myTodoList {
+    align-items: center;
+  }
+
+  li {
+    display: block;
+    width: 460px;
+  }
+}
